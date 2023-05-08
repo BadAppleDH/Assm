@@ -1,0 +1,1312 @@
+
+ 00000  LD NOT    004.02                   estop
+ 00001  OUT       003.02                   estop_1
+
+
+
+
+ 00002  LD        004.00                   u/sswitch
+ 00003  DIFU      013.03                   u/sedge
+
+
+ 00004  LD        011.00                   u/slatch
+ 00005  AND       014.03                   uendedge
+ 00006  AND       000.07                   auto
+ 00007  MOV       #000D 007                #000D 007
+
+
+ 00008  LD        013.03                   u/sedge
+ 00009  OR        014.03                   uendedge
+ 00010  OR        014.05                   sendedge
+ 00011  OUT       TR0                      TR0
+ 00012  AND NOT   011.00                   u/slatch
+ 00013  OUT       010.00                   unrleay
+ 00014  LD        TR0                      TR0
+ 00015  AND       011.00                   u/slatch
+ 00016  OUT       010.01                   srelay
+
+
+ 00017  LD        011.00                   u/slatch
+ 00018  OUT       005.09                   unstackled
+
+
+ 00019  LD NOT    011.00                   u/slatch
+ 00020  OUT       005.08                   stackled
+
+
+ 00021  LD        018.15                   powerup
+ 00022  OR        010.00                   unrleay
+ 00023  LD        010.01                   srelay
+ 00024  KEEP      011.00                   u/slatch
+
+
+ 00025  LD        000.07                   auto
+ 00026  DIFU      017.14                   autoon
+
+
+ 00027  LD        017.14                   autoon
+ 00028  LD        013.04                   startedge
+ 00029  KEEP      018.01                   autoonlatch
+
+
+ 00030  LD        018.15                   powerup
+ 00031  AND       000.07                   auto
+ 00032  AND       011.00                   u/slatch
+ 00033  OR        004.09                   resetswitch
+ 00034  AND NOT   018.01                   autoonlatch
+ 00035  AND NOT   016.01                   sendlatch
+ 00036  AND NOT   016.00                   ????
+ 00037  OR        004.02                   estop
+ 00038  OR        017.14                   autoon
+ 00039  OR        013.03                   u/sedge
+ 00040  LD        013.04                   startedge
+ 00041  KEEP      011.01                   resetlatch
+
+
+ 00042  LD        011.01                   resetlatch
+ 00043  OUT       005.11                   resetlamp
+
+
+ 00044  LD        011.01                   resetlatch
+ 00045  OR NOT    000.07                   auto
+ 00046  DIFD      014.04                   tedge
+
+
+ 00047  LD        018.15                   powerup
+ 00048  OR        014.05                   sendedge
+ 00049  AND       000.07                   auto
+ 00050  MOV       #0000 007                #0000 007
+
+
+ 00051  LD        004.01                   start
+ 00052  DIFU      013.04                   startedge
+
+
+ 00053  LD        004.10                   light
+ 00054  DIFD      014.06                   lightoffedge
+
+
+ 00055  LD NOT    000.07                   auto
+ 00056  AND       004.15                   lightoffswitch
+ 00057  OUT       015.10                   maintlightrelay
+
+
+ 00058  LD        018.15                   powerup
+ 00059  OR        013.04                   startedge
+ 00060  OR        015.10                   maintlightrelay
+ 00061  LD NOT    004.10                   light
+ 00062  AND NOT   016.00                   ????
+ 00063  AND NOT   016.01                   sendlatch
+ 00064  LD NOT    004.10                   light
+ 00065  AND NOT   000.07                   auto
+ 00066  OR LD
+ 00067  AND NOT   015.10                   maintlightrelay
+ 00068  KEEP      011.02                   dlatch
+
+
+ 00069  LD        011.02                   dlatch
+ 00070  OUT       003.03                   holdout
+ 00071  OUT       001.11                   hold2
+
+
+ 00072  LD        004.03                   stop
+ 00073  DIFU      013.06                   stopedge
+
+
+ 00074  LD        013.06                   stopedge
+ 00075  OR        017.14                   autoon
+ 00076  LD        013.04                   startedge
+ 00077  KEEP      011.12                   stoplatch
+
+
+ 00078  LD        011.12                   stoplatch
+ 00079  OUT       005.10                   stopled
+
+
+ 00080  LD NOT    011.03                   clatch
+ 00081  AND NOT   011.04                   tplatch
+ 00082  AND NOT   011.05                   tclatch
+ 00083  AND NOT   011.06                   divertlatch
+ 00084  AND NOT   011.07                   pilatch
+ 00085  AND NOT   011.08                   pclatch
+ 00086  AND NOT   011.09                   pilatch_1
+ 00087  AND NOT   011.10                   pbclatch
+ 00088  AND NOT   011.11                   prlatch
+ 00089  OUT       009.00                   009.00
+
+
+ 00090  LD        009.00                   009.00
+ 00091  AND NOT   004.15                   lightoffswitch
+ 00092  AND NOT   003.12                   003.12
+ 00093  OUT       012.05                   ustartrelay
+
+
+ 00094  LD        004.13                   sense23
+ 00095  DIFD      014.08                   sense23off
+
+
+ 00096  LD        011.00                   u/slatch
+ 00097  AND       013.04                   startedge
+ 00098  AND       000.07                   auto
+ 00099  AND NOT   011.01                   resetlatch
+ 00100  AND       012.05                   ustartrelay
+ 00101  OR        010.03                   ttcsrelay
+ 00102  OR        012.06                   ttcmon
+ 00103  AND NOT   011.12                   stoplatch
+ 00104  AND       011.02                   dlatch
+ 00105  LD        000.07                   auto
+ 00106  AND       011.00                   u/slatch
+ 00107  AND       014.08                   sense23off
+ 00108  LD        000.07                   auto
+ 00109  AND       014.04                   tedge
+ 00110  OR LD
+ 00111  OR        012.02                   ttcosrelay
+ 00112  OR        012.07                   ttcmoff
+ 00113  AND NOT   011.12                   stoplatch
+ 00114  AND       011.02                   dlatch
+ 00115  KEEP      011.03                   clatch
+
+
+ 00116  LD        011.03                   clatch
+ 00117  DIFD      014.09                   ttcoffedge
+
+
+ 00118  LD        011.03                   clatch
+ 00119  OUT       003.00                   ttcout
+
+
+ 00120  LD        011.00                   u/slatch
+ 00121  AND       014.08                   sense23off
+ 00122  AND       000.07                   auto
+ 00123  MOV       #000C 007                #000C 007
+
+
+ 00124  LD        004.11                   sense22
+ 00125  DIFU      013.10                   sense22on
+
+
+ 00126  LD        000.03                   sense1
+ 00127  DIFU      013.12                   sense1on
+
+
+ 00128  LD        013.12                   sense1on
+ 00129  AND       000.07                   auto
+ 00130  LD        011.04                   tplatch
+ 00131  KEEP      016.02                   sense1latch
+
+
+ 00132  LD        000.02                   sense2
+ 00133  DIFU      013.13                   sense2on
+
+
+ 00134  LD        013.13                   sense2on
+ 00135  AND       000.07                   auto
+ 00136  LD        011.04                   tplatch
+ 00137  KEEP      016.03                   sense2latch
+
+
+ 00138  LD        011.00                   u/slatch
+ 00139  AND       016.02                   sense1latch
+ 00140  AND       016.03                   sense2latch
+ 00141  AND       000.07                   auto
+ 00142  AND       011.00                   u/slatch
+ 00143  OR        010.04                   tpsrelay
+ 00144  OR        012.08                   tpmon
+ 00145  AND NOT   011.12                   stoplatch
+ 00146  AND       011.02                   dlatch
+ 00147  LD        013.10                   sense22on
+ 00148  AND       000.07                   auto
+ 00149  AND       011.00                   u/slatch
+ 00150  LD        000.07                   auto
+ 00151  AND       014.04                   tedge
+ 00152  OR LD
+ 00153  OR        012.01                   tposrelay
+ 00154  OR        012.09                   tpmoff
+ 00155  AND       011.02                   dlatch
+ 00156  KEEP      011.04                   tplatch
+
+
+ 00157  LD        011.04                   tplatch
+ 00158  OUT       001.03                   tpout
+
+
+ 00159  LD        011.00                   u/slatch
+ 00160  AND       013.12                   sense1on
+ 00161  AND       000.07                   auto
+ 00162  MOV       #0001 007                #0001 007
+
+
+ 00163  LD        011.00                   u/slatch
+ 00164  AND       013.10                   sense22on
+ 00165  AND       000.07                   auto
+ 00166  MOV       #000B 007                #000B 007
+
+
+ 00167  LD        002.06                   sense21
+ 00168  DIFU      013.11                   sense21on
+
+
+ 00169  LD        004.13                   sense23
+ 00170  DIFU      013.09                   sense23on
+
+
+ 00171  LD        011.00                   u/slatch
+ 00172  AND       013.09                   sense23on
+ 00173  AND       000.07                   auto
+ 00174  OR        010.05                   tcsrelay
+ 00175  OR        012.10                   tcmpon
+ 00176  AND NOT   011.12                   stoplatch
+ 00177  AND       011.02                   dlatch
+ 00178  LD        013.11                   sense21on
+ 00179  AND       011.00                   u/slatch
+ 00180  AND       000.07                   auto
+ 00181  LD        000.07                   auto
+ 00182  AND       014.04                   tedge
+ 00183  OR LD
+ 00184  LD        003.10                   003.10
+ 00185  AND       TIM006                   TIM006
+ 00186  OR LD
+ 00187  OR        012.11                   tcmoff
+ 00188  AND NOT   011.12                   stoplatch
+ 00189  AND       011.02                   dlatch
+ 00190  KEEP      011.05                   tclatch
+
+
+ 00191  LD        011.05                   tclatch
+ 00192  OUT       001.04                   tcout
+
+
+ 00193  LD        011.00                   u/slatch
+ 00194  AND       013.09                   sense23on
+ 00195  AND       000.07                   auto
+ 00196  MOV       #0002 007                #0002 007
+
+
+ 00197  LD        011.00                   u/slatch
+ 00198  AND       013.11                   sense21on
+ 00199  AND       000.07                   auto
+ 00200  MOV       #000A 007                #000A 007
+
+
+ 00201  LD NOT    011.05                   tclatch
+ 00202  AND       011.02                   dlatch
+ 00203  OUT       001.00                   tcout2
+
+
+ 00204  LD        011.00                   u/slatch
+ 00205  AND       000.07                   auto
+ 00206  AND       004.12                   sense4
+ 00207  AND       011.05                   tclatch
+ 00208  OR        010.06                   divertsrelay
+ 00209  AND NOT   011.12                   stoplatch
+ 00210  AND       011.02                   dlatch
+ 00211  LD        013.11                   sense21on
+ 00212  AND       011.00                   u/slatch
+ 00213  AND       000.07                   auto
+ 00214  LD        000.07                   auto
+ 00215  AND       014.04                   tedge
+ 00216  OR LD
+ 00217  OR        012.04                   divertosrelay
+ 00218  AND NOT   011.12                   stoplatch
+ 00219  AND       011.02                   dlatch
+ 00220  KEEP      011.06                   divertlatch
+
+
+ 00221  LD        011.06                   divertlatch
+ 00222  OUT       001.05                   divertout
+
+
+ 00223  LD        011.00                   u/slatch
+ 00224  AND       000.07                   auto
+ 00225  AND       018.00                   sens5latch
+ 00226  OR        003.13                   003.13
+ 00227  OR        015.00                   primon
+ 00228  AND NOT   011.12                   stoplatch
+ 00229  AND       011.02                   dlatch
+ 00230  LD        014.07                   extractoff
+ 00231  AND       000.07                   auto
+ 00232  AND       011.00                   u/slatch
+ 00233  LD        000.07                   auto
+ 00234  AND       014.04                   tedge
+ 00235  OR LD
+ 00236  OR        010.10                   piosrelay
+ 00237  OR        015.01                   primoff
+ 00238  AND NOT   011.12                   stoplatch
+ 00239  AND       011.02                   dlatch
+ 00240  KEEP      011.07                   pilatch
+
+
+ 00241  LD        011.07                   pilatch
+ 00242  AND NOT   018.07                   PROBEXTRACT
+ 00243  OUT       001.02                   probeout
+
+
+ 00244  LD        011.00                   u/slatch
+ 00245  AND       011.07                   pilatch
+ 00246  DIFU      013.02                   uprinled
+
+
+ 00247  LD        013.02                   uprinled
+ 00248  AND       000.07                   auto
+ 00249  MOV       #0003 007                #0003 007
+
+
+ 00250  LD        011.00                   u/slatch
+ 00251  AND       011.07                   pilatch
+ 00252  DIFD      014.00                   prioffled
+
+
+ 00253  LD        014.00                   prioffled
+ 00254  AND       000.07                   auto
+ 00255  MOV       #0005 007                #0005 007
+
+
+ 00256  LD NOT    011.07                   pilatch
+ 00257  AND       011.02                   dlatch
+ 00258  AND NOT   018.07                   PROBEXTRACT
+ 00259  OUT       005.00                   probeout2
+
+
+ 00260  LD        011.00                   u/slatch
+ 00261  AND       000.07                   auto
+ 00262  AND       011.07                   pilatch
+ 00263  AND       000.09                   sense6
+ 00264  AND       000.11                   sense7_1
+ 00265  LD NOT    011.00                   u/slatch
+ 00266  AND       000.07                   auto
+ 00267  AND       014.04                   tedge
+ 00268  OR LD
+ 00269  AND NOT   011.12                   stoplatch
+ 00270  AND       011.02                   dlatch
+ 00271  OR        012.14                   prcmon
+ 00272  LD        011.00                   u/slatch
+ 00273  AND       000.07                   auto
+ 00274  AND       014.04                   tedge
+ 00275  OR        010.08                   pcoffsrelay
+ 00276  AND NOT   011.12                   stoplatch
+ 00277  AND       011.02                   dlatch
+ 00278  OR        012.15                   prcmoff
+ 00279  KEEP      011.08                   pclatch
+
+
+ 00280  LD        011.08                   pclatch
+ 00281  OUT       001.10                   pcout
+
+
+ 00282  LD        011.00                   u/slatch
+ 00283  AND       017.01                   sense6_1
+ 00284  AND       000.07                   auto
+ 00285  MOV       #0004 007                #0004 007
+
+
+ 00286  LD        011.08                   pclatch
+ 00287  AND       000.07                   auto
+ 00288  AND       011.00                   u/slatch
+ 00289  TIM       001 #0002                piouttimer #0002
+
+
+ 00290  LD        000.10                   sense13_1
+ 00291  DIFU      013.07                   sense13on
+
+
+ 00292  LD        017.14                   autoon
+ 00293  LD        013.04                   startedge
+ 00294  KEEP      018.06                   018.06
+
+
+ 00295  LD        013.07                   sense13on
+ 00296  AND       000.07                   auto
+ 00297  LD        011.09                   pilatch_1
+ 00298  OR        013.04                   startedge
+ 00299  KEEP      016.04                   sense13latch
+
+
+ 00300  LD        000.08                   sense12
+ 00301  DIFU      013.08                   sense12on
+
+
+ 00302  LD        013.08                   sense12on
+ 00303  AND       000.07                   auto
+ 00304  LD        011.09                   pilatch_1
+ 00305  OR        013.04                   startedge
+ 00306  KEEP      016.05                   sense12latch
+
+
+ 00307  LD        011.00                   u/slatch
+ 00308  AND       000.07                   auto
+ 00309  AND       011.08                   pclatch
+ 00310  DIFU      003.04                   003.04
+
+
+ 00311  LD        000.07                   auto
+ 00312  AND NOT   013.03                   u/sedge
+ 00313  AND       003.04                   003.04
+ 00314  OR        015.11                   exmon
+ 00315  AND NOT   011.12                   stoplatch
+ 00316  AND       011.02                   dlatch
+ 00317  LD        000.07                   auto
+ 00318  AND       002.03                   sense26
+ 00319  AND       002.02                   sense27
+ 00320  OR        015.12                   exmoff
+ 00321  AND NOT   011.12                   stoplatch
+ 00322  AND       011.02                   dlatch
+ 00323  KEEP      018.07                   PROBEXTRACT
+
+
+ 00324  LD        018.07                   PROBEXTRACT
+ 00325  OUT       001.07                   extract
+
+
+ 00326  LD        018.07                   PROBEXTRACT
+ 00327  DIFD      014.07                   extractoff
+
+
+ 00328  LD        011.00                   u/slatch
+ 00329  AND       000.07                   auto
+ 00330  AND       016.04                   sense13latch
+ 00331  AND       011.04                   tplatch
+ 00332  AND       016.05                   sense12latch
+ 00333  OR        010.11                   pisrelay_1
+ 00334  OR        015.08                   piimon
+ 00335  AND NOT   011.12                   stoplatch
+ 00336  AND       011.02                   dlatch
+ 00337  LD        011.00                   u/slatch
+ 00338  AND       000.07                   auto
+ 00339  AND       002.05                   sense25
+ 00340  LD        000.07                   auto
+ 00341  AND       014.04                   tedge
+ 00342  OR LD
+ 00343  OR        010.15                   piosrelay_1
+ 00344  OR        015.09                   piimoff
+ 00345  AND       011.02                   dlatch
+ 00346  KEEP      011.09                   pilatch_1
+
+
+ 00347  LD        011.09                   pilatch_1
+ 00348  OUT       001.06                   piout
+
+
+ 00349  LD        011.00                   u/slatch
+ 00350  AND       013.07                   sense13on
+ 00351  AND       000.07                   auto
+ 00352  MOV       #0006 007                #0006 007
+
+
+ 00353  LD        011.00                   u/slatch
+ 00354  AND       011.09                   pilatch_1
+ 00355  DIFD      014.01                   upininoffled
+
+
+ 00356  LD        014.01                   upininoffled
+ 00357  AND       000.07                   auto
+ 00358  MOV       #0009 007                #0009 007
+
+
+ 00359  LD        011.00                   u/slatch
+ 00360  AND       000.07                   auto
+ 00361  AND       011.09                   pilatch_1
+ 00362  AND       002.07                   sense14
+ 00363  LD NOT    011.00                   u/slatch
+ 00364  AND       000.07                   auto
+ 00365  AND       014.04                   tedge
+ 00366  OR LD
+ 00367  OR        015.02                   pibcmon
+ 00368  AND NOT   011.12                   stoplatch
+ 00369  AND       011.02                   dlatch
+ 00370  LD        010.12                   pbcosrelay
+ 00371  LD        000.07                   auto
+ 00372  AND       011.00                   u/slatch
+ 00373  AND       014.04                   tedge
+ 00374  OR LD
+ 00375  OR        015.03                   pibcmoff
+ 00376  AND NOT   011.12                   stoplatch
+ 00377  AND       011.02                   dlatch
+ 00378  KEEP      011.10                   pbclatch
+
+
+ 00379  LD        011.10                   pbclatch
+ 00380  OUT       001.08                   pinclampout
+
+
+ 00381  LD        011.00                   u/slatch
+ 00382  AND       011.10                   pbclatch
+ 00383  DIFU      017.15                   upbconled
+
+
+ 00384  LD        017.15                   upbconled
+ 00385  AND       000.07                   auto
+ 00386  MOV       #0007 007                #0007 007
+
+
+ 00387  LD        011.00                   u/slatch
+ 00388  AND       000.07                   auto
+ 00389  AND       011.10                   pbclatch
+ 00390  AND       000.04                   sense24
+ 00391  LD NOT    011.00                   u/slatch
+ 00392  AND       000.07                   auto
+ 00393  AND       014.04                   tedge
+ 00394  OR LD
+ 00395  AND NOT   011.12                   stoplatch
+ 00396  AND       011.02                   dlatch
+ 00397  OR        015.04                   pirmon
+ 00398  LD        010.13                   prosrelay
+ 00399  LD        000.07                   auto
+ 00400  AND       011.00                   u/slatch
+ 00401  AND       014.04                   tedge
+ 00402  OR LD
+ 00403  AND NOT   011.12                   stoplatch
+ 00404  AND       011.02                   dlatch
+ 00405  OR        015.05                   pirmoff
+ 00406  KEEP      011.11                   prlatch
+
+
+ 00407  LD        011.11                   prlatch
+ 00408  OUT       001.09                   piretainout
+
+
+ 00409  LD        011.00                   u/slatch
+ 00410  AND       011.11                   prlatch
+ 00411  DIFU      003.05                   003.05
+
+
+ 00412  LD        003.05                   003.05
+ 00413  AND       000.07                   auto
+ 00414  MOV       #0008 007                #0008 007
+
+
+ 00415  LD        014.09                   ttcoffedge
+ 00416  AND       000.07                   auto
+ 00417  AND       011.00                   u/slatch
+ 00418  AND NOT   011.12                   stoplatch
+ 00419  AND       011.08                   pclatch
+ 00420  AND       011.10                   pbclatch
+ 00421  AND       011.11                   prlatch
+ 00422  DIFD      014.03                   uendedge
+
+
+ 00423  LD        014.03                   uendedge
+ 00424  LD        013.04                   startedge
+ 00425  KEEP      016.00                   ????
+
+
+ 00426  LD NOT    011.03                   clatch
+ 00427  AND NOT   011.04                   tplatch
+ 00428  AND NOT   011.05                   tclatch
+ 00429  AND NOT   011.06                   divertlatch
+ 00430  AND NOT   011.07                   pilatch
+ 00431  AND NOT   011.13                   pinguide
+ 00432  AND       011.08                   pclatch
+ 00433  AND NOT   011.09                   pilatch_1
+ 00434  AND       011.10                   pbclatch
+ 00435  OUT       012.03                   stackstart1
+
+
+ 00436  LD        012.03                   stackstart1
+ 00437  AND       011.11                   prlatch
+ 00438  AND NOT   004.15                   lightoffswitch
+ 00439  OUT       010.02                   stackstart2
+
+
+ 00440  LD        000.07                   auto
+ 00441  AND NOT   011.00                   u/slatch
+ 00442  AND       013.04                   startedge
+ 00443  AND       010.02                   stackstart2
+ 00444  OUT       010.03                   ttcsrelay
+
+
+ 00445  LD        000.07                   auto
+ 00446  AND NOT   011.00                   u/slatch
+ 00447  AND       016.02                   sense1latch
+ 00448  AND       016.03                   sense2latch
+ 00449  OUT       010.04                   tpsrelay
+
+
+ 00450  LD NOT    011.00                   u/slatch
+ 00451  AND       013.12                   sense1on
+ 00452  AND       000.07                   auto
+ 00453  MOV       #000E 007                #000E 007
+
+
+ 00454  LD        004.14                   sense3
+ 00455  DIFU      013.14                   sense3on
+
+
+ 00456  LD        000.07                   auto
+ 00457  AND NOT   011.00                   u/slatch
+ 00458  AND       013.09                   sense23on
+ 00459  OUT       010.05                   tcsrelay
+
+
+ 00460  LD NOT    011.00                   u/slatch
+ 00461  AND       013.09                   sense23on
+ 00462  AND       000.07                   auto
+ 00463  MOV       #000F 007                #000F 007
+
+
+ 00464  LD        004.12                   sense4
+ 00465  DIFU      013.15                   sense4on
+
+
+ 00466  LD        000.07                   auto
+ 00467  AND NOT   011.00                   u/slatch
+ 00468  AND       010.05                   tcsrelay
+ 00469  AND       013.15                   sense4on
+ 00470  OUT       010.06                   divertsrelay
+
+
+ 00471  LD        000.12                   sense5_1
+ 00472  DIFU      017.00                   sense5on
+
+
+ 00473  LD        000.07                   auto
+ 00474  AND       017.00                   sense5on
+ 00475  AND NOT   011.13                   pinguide
+ 00476  LD        017.01                   sense6_1
+ 00477  OR        017.02                   sense7on
+ 00478  OR        014.04                   tedge
+ 00479  KEEP      018.00                   sens5latch
+
+
+ 00480  LD        000.07                   auto
+ 00481  AND NOT   011.00                   u/slatch
+ 00482  AND       018.00                   sens5latch
+ 00483  OR        012.12                   dumpmon
+ 00484  AND NOT   011.12                   stoplatch
+ 00485  AND       011.02                   dlatch
+ 00486  LD        013.00                   013.00
+ 00487  LD        000.07                   auto
+ 00488  AND       014.04                   tedge
+ 00489  OR LD
+ 00490  OR        012.13                   dumpmoff
+ 00491  AND NOT   011.12                   stoplatch
+ 00492  AND       011.02                   dlatch
+ 00493  KEEP      011.14                   tray_dump
+
+
+ 00494  LD        011.14                   tray_dump
+ 00495  OUT       001.01                   traydumpout
+
+
+ 00496  LD NOT    011.00                   u/slatch
+ 00497  AND       017.00                   sense5on
+ 00498  AND       000.07                   auto
+ 00499  MOV       #0000 007                #0000 007
+
+
+ 00500  LD NOT    011.00                   u/slatch
+ 00501  AND       013.00                   013.00
+ 00502  AND       000.07                   auto
+ 00503  MOV       #0004 007                #0004 007
+
+
+ 00504  LD        000.07                   auto
+ 00505  AND NOT   011.00                   u/slatch
+ 00506  AND       011.14                   tray_dump
+ 00507  TIM       002 #0015                pistimer #0015
+
+
+ 00508  LD        000.07                   auto
+ 00509  AND NOT   011.00                   u/slatch
+ 00510  AND       000.12                   sense5_1
+ 00511  AND       TIM002                   pistimer
+ 00512  AND NOT   002.03                   sense26
+ 00513  AND NOT   002.02                   sense27
+ 00514  OUT       009.10                   baraline
+
+
+ 00515  LD        009.10                   baraline
+ 00516  OR        001.13                   barmon
+ 00517  AND       011.02                   dlatch
+ 00518  LD        013.07                   sense13on
+ 00519  OR        001.14                   barmoff
+ 00520  OR        014.04                   tedge
+ 00521  AND       011.02                   dlatch
+ 00522  KEEP      001.12                   balatch
+
+
+ 00523  LD        001.12                   balatch
+ 00524  OUT       005.01                   baralign
+
+
+ 00525  LD NOT    001.12                   balatch
+ 00526  OUT       005.02                   baroff
+
+
+ 00527  LD        000.07                   auto
+ 00528  AND NOT   011.00                   u/slatch
+ 00529  AND       000.00                   bardown
+ 00530  AND       000.13                   b2down
+ 00531  DIFU      003.13                   003.13
+
+
+ 00532  LD NOT    011.00                   u/slatch
+ 00533  AND       011.07                   pilatch
+ 00534  DIFU      003.06                   003.06
+
+
+ 00535  LD        003.06                   003.06
+ 00536  AND       000.07                   auto
+ 00537  MOV       #0001 007                #0001 007
+
+
+ 00538  LD        000.11                   sense7_1
+ 00539  DIFU      017.02                   sense7on
+
+
+ 00540  LD        017.02                   sense7on
+ 00541  LD NOT    011.13                   pinguide
+ 00542  KEEP      016.14                   sense7latch
+
+
+ 00543  LD        000.09                   sense6
+ 00544  DIFU      017.01                   sense6_1
+
+
+ 00545  LD        017.01                   sense6_1
+ 00546  LD NOT    011.13                   pinguide
+ 00547  KEEP      016.15                   sense6latch
+
+
+ 00548  LD        000.07                   auto
+ 00549  AND NOT   011.00                   u/slatch
+ 00550  AND       000.11                   sense7_1
+ 00551  AND       000.09                   sense6
+ 00552  AND       011.04                   tplatch
+ 00553  OUT       010.08                   pcoffsrelay
+
+
+ 00554  LD NOT    011.00                   u/slatch
+ 00555  AND       011.08                   pclatch
+ 00556  DIFD      014.02                   sprcoffled
+
+
+ 00557  LD        014.02                   sprcoffled
+ 00558  AND       000.07                   auto
+ 00559  MOV       #0002 007                #0002 007
+
+
+ 00560  LD        000.07                   auto
+ 00561  AND NOT   011.00                   u/slatch
+ 00562  AND       011.14                   tray_dump
+ 00563  AND       010.08                   pcoffsrelay
+ 00564  TIM       003 #0001                pgstimer #0001
+
+
+ 00565  LD        000.07                   auto
+ 00566  AND NOT   011.00                   u/slatch
+ 00567  AND       TIM003                   pgstimer
+ 00568  OUT       010.09                   pgsrelay
+
+
+ 00569  LD        000.07                   auto
+ 00570  AND NOT   011.00                   u/slatch
+ 00571  AND       010.09                   pgsrelay
+ 00572  OR        015.06                   pigmon
+ 00573  AND NOT   011.12                   stoplatch
+ 00574  AND       011.02                   dlatch
+ 00575  LD        000.07                   auto
+ 00576  AND NOT   011.00                   u/slatch
+ 00577  AND       010.14                   pgosrelay
+ 00578  LD        000.07                   auto
+ 00579  AND NOT   011.00                   u/slatch
+ 00580  AND       014.04                   tedge
+ 00581  OR LD
+ 00582  OR        015.07                   pigmoff
+ 00583  AND NOT   011.12                   stoplatch
+ 00584  AND       011.02                   dlatch
+ 00585  KEEP      011.13                   pinguide
+
+
+ 00586  LD        011.13                   pinguide
+ 00587  OUT       003.01                   pinguideout
+
+
+ 00588  LD NOT    011.00                   u/slatch
+ 00589  AND       011.13                   pinguide
+ 00590  DIFU      003.07                   003.07
+
+
+ 00591  LD        003.07                   003.07
+ 00592  AND       000.07                   auto
+ 00593  MOV       #0003 007                #0003 007
+
+
+ 00594  LD        006.01                   sense17
+ 00595  DIFU      017.03                   sense17on
+
+
+ 00596  LD        006.03                   sense18
+ 00597  DIFU      017.04                   sense18on
+
+
+ 00598  LD        006.02                   sense19
+ 00599  DIFU      017.05                   sense19latch
+
+
+ 00600  LD        006.00                   sense20
+ 00601  DIFU      017.06                   sense20on
+
+
+ 00602  LD        017.03                   sense17on
+ 00603  LD        017.07                   sense14on
+ 00604  KEEP      016.06                   sense17_1
+
+
+ 00605  LD        017.04                   sense18on
+ 00606  LD        017.07                   sense14on
+ 00607  KEEP      016.07                   sense18_1
+
+
+ 00608  LD        017.05                   sense19latch
+ 00609  LD        017.07                   sense14on
+ 00610  KEEP      016.08                   sense19_1
+
+
+ 00611  LD        017.06                   sense20on
+ 00612  LD        017.07                   sense14on
+ 00613  KEEP      016.09                   sense20latch
+
+
+ 00614  LD        000.07                   auto
+ 00615  AND NOT   011.00                   u/slatch
+ 00616  AND       016.06                   sense17_1
+ 00617  AND       016.07                   sense18_1
+ 00618  AND       016.08                   sense19_1
+ 00619  AND       016.09                   sense20latch
+ 00620  DIFU      013.00                   013.00
+
+
+ 00621  LD        000.07                   auto
+ 00622  AND NOT   011.00                   u/slatch
+ 00623  AND       016.06                   sense17_1
+ 00624  AND       016.07                   sense18_1
+ 00625  AND       016.08                   sense19_1
+ 00626  AND       016.09                   sense20latch
+ 00627  TIM       004 #0001                piostimer #0001
+
+
+ 00628  LD        000.07                   auto
+ 00629  AND NOT   011.00                   u/slatch
+ 00630  AND       TIM004                   piostimer
+ 00631  OUT       010.10                   piosrelay
+
+
+ 00632  LD NOT    011.00                   u/slatch
+ 00633  AND       010.10                   piosrelay
+ 00634  AND       000.07                   auto
+ 00635  DIFU      003.08                   003.08
+
+ 00636  LD        003.08                   003.08
+ 00637  MOV       #0005 007                #0005 007
+
+
+ 00638  LD        000.07                   auto
+ 00639  AND NOT   011.00                   u/slatch
+ 00640  AND       016.05                   sense12latch
+ 00641  AND       016.04                   sense13latch
+ 00642  AND       011.04                   tplatch
+ 00643  OUT       010.11                   pisrelay_1
+
+
+ 00644  LD NOT    011.00                   u/slatch
+ 00645  AND       013.07                   sense13on
+ 00646  AND       000.07                   auto
+ 00647  MOV       #0006 007                #0006 007
+
+
+ 00648  LD        002.07                   sense14
+ 00649  DIFU      017.07                   sense14on
+
+
+ 00650  LD        000.07                   auto
+ 00651  AND NOT   011.00                   u/slatch
+ 00652  AND       017.07                   sense14on
+ 00653  OUT       010.12                   pbcosrelay
+
+
+ 00654  LD NOT    011.00                   u/slatch
+ 00655  AND       017.07                   sense14on
+ 00656  AND       000.07                   auto
+ 00657  MOV       #0007 007                #0007 007
+
+
+ 00658  LD        000.05                   sense15
+ 00659  DIFU      017.08                   sense15on
+
+
+ 00660  LD        000.07                   auto
+ 00661  AND NOT   011.00                   u/slatch
+ 00662  AND       017.08                   sense15on
+ 00663  OUT       010.13                   prosrelay
+
+
+ 00664  LD NOT    011.00                   u/slatch
+ 00665  AND       017.08                   sense15on
+ 00666  AND       000.07                   auto
+ 00667  MOV       #0008 007                #0008 007
+
+
+ 00668  LD        002.04                   sense16
+ 00669  DIFU      017.09                   sense16on
+
+
+ 00670  LD        000.07                   auto
+ 00671  AND NOT   011.00                   u/slatch
+ 00672  AND       017.09                   sense16on
+ 00673  OUT       010.14                   pgosrelay
+
+
+ 00674  LD NOT    011.00                   u/slatch
+ 00675  AND       017.09                   sense16on
+ 00676  AND       000.07                   auto
+ 00677  MOV       #0009 007                #0009 007
+
+
+ 00678  LD        006.06                   sense8
+ 00679  DIFU      017.10                   sense8on
+
+
+ 00680  LD        006.07                   sense9
+ 00681  DIFU      017.11                   sense9on
+
+
+ 00682  LD        006.04                   sense10
+ 00683  DIFU      017.12                   sense10on
+
+
+ 00684  LD        006.05                   sense11
+ 00685  DIFU      017.13                   sense11on
+
+
+ 00686  LD        017.10                   sense8on
+ 00687  LD NOT    011.09                   pilatch_1
+ 00688  KEEP      016.10                   sense8latch
+
+
+ 00689  LD        017.11                   sense9on
+ 00690  LD NOT    011.09                   pilatch_1
+ 00691  KEEP      016.11                   sense9latch
+
+
+ 00692  LD        017.12                   sense10on
+ 00693  LD NOT    011.09                   pilatch_1
+ 00694  KEEP      016.12                   sense10latch
+
+
+ 00695  LD        017.13                   sense11on
+ 00696  LD NOT    011.09                   pilatch_1
+ 00697  KEEP      016.13                   sense11latch
+
+
+ 00698  LD        000.07                   auto
+ 00699  AND NOT   011.00                   u/slatch
+ 00700  AND       016.10                   sense8latch
+ 00701  AND       016.11                   sense9latch
+ 00702  AND       016.12                   sense10latch
+ 00703  AND       016.13                   sense11latch
+ 00704  LD        000.07                   auto
+ 00705  AND NOT   011.00                   u/slatch
+ 00706  AND       014.04                   tedge
+ 00707  OR LD
+ 00708  OUT       010.15                   piosrelay_1
+
+
+ 00709  LD NOT    011.00                   u/slatch
+ 00710  AND       017.10                   sense8on
+ 00711  AND       000.07                   auto
+ 00712  MOV       #000A 007                #000A 007
+
+
+ 00713  LD        000.07                   auto
+ 00714  AND NOT   011.00                   u/slatch
+ 00715  AND       013.11                   sense21on
+ 00716  LD        000.07                   auto
+ 00717  AND NOT   011.00                   u/slatch
+ 00718  AND       014.04                   tedge
+ 00719  OR LD
+ 00720  OUT       012.00                   tcosrelay
+
+
+ 00721  LD        012.00                   tcosrelay
+ 00722  LD        012.01                   tposrelay
+ 00723  OR        008.00                   upronled
+ 00724  OR        014.04                   tedge
+ 00725  KEEP      003.10                   003.10
+
+
+ 00726  LD        003.10                   003.10
+ 00727  TIM       005 #0007                005 #0007
+ 00728  TIM       006 #0008                006 #0008
+
+
+ 00729  LD        000.07                   auto
+ 00730  AND NOT   011.00                   u/slatch
+ 00731  AND       TIM005                   TIM005
+ 00732  DIFU      003.11                   003.11
+
+
+ 00733  LD        003.11                   003.11
+ 00734  AND NOT   008.01                   sprinonleed
+ 00735  LD        008.00                   upronled
+ 00736  KEEP      003.12                   003.12
+
+
+ 00737  LD NOT    011.00                   u/slatch
+ 00738  AND       013.11                   sense21on
+ 00739  AND       000.07                   auto
+ 00740  MOV       #000B 007                #000B 007
+
+
+ 00741  LD        000.07                   auto
+ 00742  AND NOT   011.00                   u/slatch
+ 00743  AND       013.11                   sense21on
+ 00744  LD        000.07                   auto
+ 00745  AND NOT   011.00                   u/slatch
+ 00746  AND       014.04                   tedge
+ 00747  OR LD
+ 00748  OUT       012.04                   divertosrelay
+
+
+ 00749  LD        000.07                   auto
+ 00750  AND NOT   011.00                   u/slatch
+ 00751  AND       013.10                   sense22on
+ 00752  OUT       012.01                   tposrelay
+
+
+ 00753  LD NOT    011.00                   u/slatch
+ 00754  AND       013.10                   sense22on
+ 00755  AND       000.07                   auto
+ 00756  MOV       #000C 007                #000C 007
+
+
+ 00757  LD        000.07                   auto
+ 00758  AND NOT   011.00                   u/slatch
+ 00759  AND       013.14                   sense3on
+ 00760  LD        000.07                   auto
+ 00761  AND NOT   011.00                   u/slatch
+ 00762  AND       014.04                   tedge
+ 00763  OR LD
+ 00764  OUT       012.02                   ttcosrelay
+
+
+ 00765  LD NOT    011.00                   u/slatch
+ 00766  AND       013.14                   sense3on
+ 00767  AND       000.07                   auto
+ 00768  MOV       #000D 007                #000D 007
+
+
+ 00769  LD        000.07                   auto
+ 00770  AND NOT   011.00                   u/slatch
+ 00771  AND       004.09                   resetswitch
+ 00772  LD        000.07                   auto
+ 00773  AND NOT   011.00                   u/slatch
+ 00774  AND       013.12                   sense1on
+ 00775  KEEP      001.15                   reset_prevent
+
+
+ 00776  LD        000.07                   auto
+ 00777  AND NOT   011.00                   u/slatch
+ 00778  AND       014.09                   ttcoffedge
+ 00779  AND NOT   011.08                   pclatch
+ 00780  AND NOT   001.15                   reset_prevent
+ 00781  DIFD      014.05                   sendedge
+
+
+ 00782  LD NOT    011.00                   u/slatch
+ 00783  AND       017.00                   sense5on
+ 00784  AND       000.07                   auto
+ 00785  LD        014.05                   sendedge
+ 00786  AND       000.07                   auto
+ 00787  KEEP      018.03                   5thbitlatch
+
+
+ 00788  LD        018.03                   5thbitlatch
+ 00789  OUT       005.03                   5thbitout
+
+
+ 00790  LD        014.05                   sendedge
+ 00791  AND NOT   001.15                   reset_prevent
+ 00792  LD        013.04                   startedge
+ 00793  KEEP      016.01                   sendlatch
+
+
+ 00794  LD        003.12                   003.12
+ 00795  OUT       005.04                   cyclendLED
+
+
+ 00796  LD NOT    000.07                   auto
+ 00797  AND       004.08                   jog
+ 00798  DIFU      013.01                   pconedge
+
+
+ 00799  LD NOT    000.07                   auto
+ 00800  AND NOT   004.07                   select8
+ 00801  AND NOT   004.06                   select4
+ 00802  AND NOT   004.05                   select2
+ 00803  AND       004.04                   select1
+ 00804  AND       013.01                   pconedge
+ 00805  OUT       TR0                      TR0
+ 00806  AND NOT   011.03                   clatch
+ 00807  OUT       012.06                   ttcmon
+ 00808  LD        TR0                      TR0
+ 00809  AND       011.03                   clatch
+ 00810  OUT       012.07                   ttcmoff
+
+
+ 00811  LD NOT    000.07                   auto
+ 00812  AND NOT   004.07                   select8
+ 00813  AND NOT   004.06                   select4
+ 00814  AND       004.05                   select2
+ 00815  AND NOT   004.04                   select1
+ 00816  AND       013.01                   pconedge
+ 00817  OUT       TR0                      TR0
+ 00818  AND NOT   011.04                   tplatch
+ 00819  OUT       012.08                   tpmon
+ 00820  LD        TR0                      TR0
+ 00821  AND       011.04                   tplatch
+ 00822  OUT       012.09                   tpmoff
+
+
+ 00823  LD NOT    000.07                   auto
+ 00824  AND NOT   004.07                   select8
+ 00825  AND NOT   004.06                   select4
+ 00826  AND       004.05                   select2
+ 00827  AND       004.04                   select1
+ 00828  AND       013.01                   pconedge
+ 00829  OUT       TR0                      TR0
+ 00830  AND NOT   011.05                   tclatch
+ 00831  OUT       012.10                   tcmpon
+ 00832  LD        TR0                      TR0
+ 00833  AND       011.05                   tclatch
+ 00834  OUT       012.11                   tcmoff
+
+
+ 00835  LD NOT    000.07                   auto
+ 00836  AND NOT   004.07                   select8
+ 00837  AND       004.06                   select4
+ 00838  AND NOT   004.05                   select2
+ 00839  AND NOT   004.04                   select1
+ 00840  AND       013.01                   pconedge
+ 00841  OUT       TR0                      TR0
+ 00842  AND NOT   011.14                   tray_dump
+ 00843  OUT       012.12                   dumpmon
+ 00844  LD        TR0                      TR0
+ 00845  AND       011.14                   tray_dump
+ 00846  OUT       012.13                   dumpmoff
+
+
+ 00847  LD NOT    000.07                   auto
+ 00848  AND NOT   004.07                   select8
+ 00849  AND       004.06                   select4
+ 00850  AND NOT   004.05                   select2
+ 00851  AND       004.04                   select1
+ 00852  AND       013.01                   pconedge
+ 00853  OUT       TR0                      TR0
+ 00854  AND NOT   011.08                   pclatch
+ 00855  OUT       012.14                   prcmon
+ 00856  LD        TR0                      TR0
+ 00857  AND       011.08                   pclatch
+ 00858  OUT       012.15                   prcmoff
+
+
+ 00859  LD NOT    000.07                   auto
+ 00860  AND NOT   004.07                   select8
+ 00861  AND       004.06                   select4
+ 00862  AND       004.05                   select2
+ 00863  AND NOT   004.04                   select1
+ 00864  AND       013.01                   pconedge
+ 00865  OUT       TR0                      TR0
+ 00866  AND NOT   011.07                   pilatch
+ 00867  OUT       015.00                   primon
+ 00868  LD        TR0                      TR0
+ 00869  AND       011.07                   pilatch
+ 00870  OUT       015.01                   primoff
+
+
+ 00871  LD NOT    000.07                   auto
+ 00872  AND NOT   004.07                   select8
+ 00873  AND       004.06                   select4
+ 00874  AND       004.05                   select2
+ 00875  AND       004.04                   select1
+ 00876  AND       013.01                   pconedge
+ 00877  OUT       TR0                      TR0
+ 00878  AND NOT   011.10                   pbclatch
+ 00879  OUT       015.02                   pibcmon
+ 00880  LD        TR0                      TR0
+ 00881  AND       011.10                   pbclatch
+ 00882  OUT       015.03                   pibcmoff
+
+
+ 00883  LD NOT    000.07                   auto
+ 00884  AND       004.07                   select8
+ 00885  AND NOT   004.06                   select4
+ 00886  AND NOT   004.05                   select2
+ 00887  AND NOT   004.04                   select1
+ 00888  AND       013.01                   pconedge
+ 00889  OUT       TR0                      TR0
+ 00890  AND NOT   011.11                   prlatch
+ 00891  OUT       015.04                   pirmon
+ 00892  LD        TR0                      TR0
+ 00893  AND       011.11                   prlatch
+ 00894  OUT       015.05                   pirmoff
+
+
+ 00895  LD NOT    000.07                   auto
+ 00896  AND       004.07                   select8
+ 00897  AND NOT   004.06                   select4
+ 00898  AND NOT   004.05                   select2
+ 00899  AND       004.04                   select1
+ 00900  AND       013.01                   pconedge
+ 00901  OUT       TR0                      TR0
+ 00902  AND NOT   011.13                   pinguide
+ 00903  OUT       015.06                   pigmon
+ 00904  LD        TR0                      TR0
+ 00905  AND       011.13                   pinguide
+ 00906  OUT       015.07                   pigmoff
+
+
+ 00907  LD NOT    000.07                   auto
+ 00908  AND       004.07                   select8
+ 00909  AND NOT   004.06                   select4
+ 00910  AND       004.05                   select2
+ 00911  AND NOT   004.04                   select1
+ 00912  AND       013.01                   pconedge
+ 00913  OUT       TR0                      TR0
+ 00914  AND NOT   011.09                   pilatch_1
+ 00915  OUT       015.08                   piimon
+ 00916  LD        TR0                      TR0
+ 00917  AND       011.09                   pilatch_1
+ 00918  OUT       015.09                   piimoff
+
+
+ 00919  LD NOT    000.07                   auto
+ 00920  AND       004.07                   select8
+ 00921  AND NOT   004.06                   select4
+ 00922  AND       004.05                   select2
+ 00923  AND       004.04                   select1
+ 00924  AND       013.01                   pconedge
+ 00925  OUT       TR0                      TR0
+ 00926  AND NOT   018.07                   PROBEXTRACT
+ 00927  OUT       015.11                   exmon
+ 00928  LD        TR0                      TR0
+ 00929  AND       018.07                   PROBEXTRACT
+ 00930  OUT       015.12                   exmoff
+
+
+ 00931  LD NOT    000.07                   auto
+ 00932  AND       004.07                   select8
+ 00933  AND       004.06                   select4
+ 00934  AND NOT   004.05                   select2
+ 00935  AND NOT   004.04                   select1
+ 00936  AND       013.01                   pconedge
+ 00937  OUT       TR0                      TR0
+ 00938  AND NOT   001.12                   balatch
+ 00939  OUT       001.13                   barmon
+ 00940  LD        TR0                      TR0
+ 00941  AND       001.12                   balatch
+ 00942  OUT       001.14                   barmoff
+
+
+ 00943  END
+
+
